@@ -19,6 +19,8 @@ Os controles de instalação variam conforme o navegador. A instalação não si
 Clique numa corda para fixar a posição. Digite uma casa de 0 a 24; dois dígitos rápidos formam uma casa. Espaço avança, setas navegam, Shift + setas seleciona e Delete apaga. As ferramentas inferiores inserem casas, técnicas e comandos de edição.
 
 - Duas guitarras com afinações independentes e colunas alinhadas.
+- Textos acima das cordas, ancorados às colunas, para Início, Verso, Refrão, Ponte e outras indicações.
+- Sugestões de nomes divertidos para músicas e ideias.
 - Slides, ligados, bends, vibrato, ghost notes, harmônicos e tapping.
 - Palhetadas abaixo da pauta e P.M. com linha tracejada sobre o trecho selecionado.
 - Modo claro/noturno, quatro paletas e zoom de 60% a 180%.
@@ -52,3 +54,9 @@ Em Settings → Pages, publique a branch `main`, pasta raiz (`/`). O arquivo `.n
 A cada atualização, altere `VERSION` em `sw.js`. Inclua novos arquivos essenciais na lista `FILES`. Não inclua backups de músicas no repositório.
 
 Para testar o fluxo offline: abra o app com o servidor ativo, aguarde o cache, encerre o servidor e recarregue. O editor deve continuar abrindo. Teste também o salvamento e a reabertura de um projeto.
+
+## Textos e nomes de ideias
+
+Clique na faixa Aa acima da tablatura na coluna desejada, digite o texto e salve. F2 abre o texto da coluna selecionada. Cada guitarra tem seus próprios textos. Eles acompanham a inserção e remoção de colunas, são incluídos no JSON e no TXT e aparecem na impressão. Copiar/recortar uma seleção com as seis cordas também inclui os textos.
+
+Abaixo do título, Sugerir um nome divertido oferece três opções e permite pedir outras. Escolher um nome pode ser desfeito como qualquer edição. A escolha não altera as notas.
