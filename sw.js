@@ -1,6 +1,6 @@
 'use strict';
 // Altere a versão a cada publicação com mudanças nos arquivos do app.
-const VERSION='1.4.2';
+const VERSION='1.4.3';
 const BASE=new URL('./',self.location.href);
 const PREFIX='corda-shell-'+BASE.pathname.replace(/[^a-z0-9]/gi,'_')+'-';
 const CACHE=PREFIX+VERSION;
