@@ -1,4 +1,4 @@
-# Corda 2.0
+# Corda 2.1
 
 Caderno pessoal de tablaturas, PWA estática para uso no navegador e offline.
 
@@ -29,7 +29,7 @@ O relógio do áudio guia o cursor, evitando acumular desvio por temporizadores.
 
 ## Exportar
 
-- **Projeto editável JSON:** formato v5; lê arquivos v1–v5 e migra os antigos. Dados continuam locais. Exporte backups antes de limpar o navegador.
+- **Projeto editável JSON:** formato v6; lê arquivos v1–v6 e migra os antigos. Dados continuam locais. Exporte backups antes de limpar o navegador.
 - **Texto:** tablatura com instrumentos e anotações.
 - **PDF:** arquivo A4 de alta resolução (200 dpi), fundo branco, título, informações, compassos numerados, nomes/afinações dos instrumentos, margens e páginas. Usa imagens de alta resolução, portanto texto não é selecionável.
 - **Tira para vídeo:** escolha intervalo de compassos, instrumento(s), fundo branco/transparente e PNG ou SVG. Tamanhos 1920×540, 3840×1080, 1920×1080 e 3840×2160. A tira é contínua; use trechos curtos para legibilidade. Exportações excessivamente densas são recusadas.
@@ -53,3 +53,9 @@ Arquivos principais: `index.html`, `style.css`, `app.js` (edição), `music.js` 
 Terceiros: [alphaTab](https://github.com/CoderLine/alphaTab), versão 1.9.0, MPL-2.0; licença em `alphatab-LICENSE.txt`. O arquivo distribuído não foi modificado. [Hits](https://hits.sh/) fornece o contador externo opcional da tela inicial.
 
 Validação do modelo: `node test-music.cjs` e `node test-import.mjs`.
+
+## Acessibilidade e capotraste (2.1)
+
+A barra de ações do editor permanece no topo durante a rolagem, inclusive com acompanhamento. O dicionário aparece uma única vez no editor; na tela inicial há um acesso na biblioteca. A paleta **Alto contraste** funciona com o botão de modo claro/noturno e é guardada nas preferências.
+
+Em **Instrumento e tempo → Capotraste**, escolha uma casa de 1 a 12 (ou sem capotraste). As casas digitadas são relativas ao capotraste: casa 0 é a corda solta com o capotraste instalado. A reprodução sintética, o dicionário e o braço consideram a altura resultante. MP3 não é transposto pelo capotraste. A indicação acompanha a tablatura, o PDF, a tira de vídeo, o texto e o backup JSON. A importação Guitar Pro preserva o capotraste quando presente.
