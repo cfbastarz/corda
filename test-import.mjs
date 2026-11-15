@@ -1,0 +1,13 @@
+import * as at from './alphatab-1.9.0.mjs';
+import { createRequire } from 'node:module';
+import assert from 'node:assert/strict';
+const M=createRequire(import.meta.url)('./music.js');
+const score=at.importer.ScoreLoader.loadAlphaTex('\\title "Corda import test" \\tempo 130 . 0.6 2.5 2.4 0.3 | 3.6 2.5 0.4 0.3');
+const bytes=new at.exporter.Gp7Exporter().export(score);
+const parsed=at.importer.ScoreLoader.loadScoreFromBytes(bytes);
+const result=M.importScore(parsed,[0],'test');
+assert.equal(Object.keys(result.song.tracks[0].cells).length,8);
+assert.equal(result.song.bpm,130);
+assert.equal(M.validTiming(result.song),true);
+assert.equal(result.report.skipped,0);
+console.log('PASS: Guitar Pro 7 binary export/import preserves 8 attacks, tuning and 130 BPM.');

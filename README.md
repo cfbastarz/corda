@@ -1,72 +1,55 @@
-# Corda
+# Corda 2.0
 
-Editor de tablaturas para instrumentos de corda, instalável como PWA e utilizável offline.
+Caderno pessoal de tablaturas, PWA estática para uso no navegador e offline.
 
-**Abrir:** https://cfbastarz.github.io/corda/
+**App:** https://cfbastarz.github.io/corda/
 
-## Instalar
+## Compor
 
-Abra o endereço uma vez com internet e aguarde o preparo do cache.
+- Até dois instrumentos, com nomes livres, 1 a 12 cordas e afinação por corda.
+- Clique para fixar a posição; números escrevem casas (0–24), setas navegam, Espaço avança.
+- Ctrl+clique, ⌘+clique ou clique direito numa corda abre os acordes. Escolha fundamental, qualidade e posição e clique em **Inserir**. As seis/mais cordas são preenchidas na coluna escolhida; × indica corda abafada. A anotação com o nome do acorde é adicionada acima.
+- **Acordes e braço** abre o dicionário com 12 fundamentais e 12 qualidades, posições calculadas para a afinação atual e consulta às notas/intervalos nas casas 0–24. Também funciona na tela inicial.
+- **Transpor** altera o instrumento, as colunas selecionadas ou todos os instrumentos, mantendo a afinação. Procura casas 0–24; se uma nota/acorde não couber, nenhuma alteração é aplicada. Notas em cordas ocultas devem ser reexibidas antes de transpor. Nomes de acordes/anotações são textos e precisam de revisão manual após transposição.
+- Desfazer/refazer recupera alterações musicais, incluindo estrutura, acordes, transposição e remoção de instrumento.
 
-- **Chrome/Edge:** clique em Instalar app ou no ícone de instalação da barra de endereço.
-- **Safari no Mac:** Arquivo → Adicionar ao Dock.
-- **iPhone/iPad:** Safari → Compartilhar → Adicionar à Tela de Início.
+## Compassos e acompanhamento
 
-Os controles de instalação variam conforme o navegador. A instalação não sincroniza músicas entre aparelhos.
+Em **Instrumento e tempo → Compassos e sincronização**, ajuste quantidade de compassos, BPM, fórmula, subdivisão e compassos por sistema. Por exemplo, 100 compassos em 4/4 a 130 BPM duram aproximadamente 3min04s. BPM é sempre em semínimas, inclusive em 6/8.
 
-## Escrever tablaturas
+Cada posição da grade tem duração definida pela subdivisão. O acompanhamento percorre todos os compassos, inclusive silêncios. A grade mostra números de compassos e separadores automáticos. Alterar fórmula/subdivisão preserva posições pelo tempo dentro de cada compasso; colisões são recusadas e cortes pedem confirmação.
 
-Clique numa corda para fixar a posição. Digite uma casa de 0 a 24; dois dígitos rápidos formam uma casa. Espaço avança, setas navegam, Shift + setas seleciona e Delete apaga. As ferramentas inferiores inserem casas, técnicas e comandos de edição.
+**Acompanhar** inicia/pausa o relógio e a rolagem; **Início** volta ao começo; **Da seleção** parte da coluna selecionada. A barra de posição permite buscar trechos. **Seguir tablatura** pode ser desativado e a velocidade vai de 50% a 200%. A velocidade também altera o MP3, preservando sua altura quando suportado pelo navegador. A reprodução **Ouvir** continua disponível como referência sintética e segue a subdivisão configurada.
 
-- Dois instrumentos de 1 a 12 cordas, com nomes livres, afinações independentes e colunas alinhadas.
-- Textos acima das cordas, ancorados às colunas, para Início, Verso, Refrão, Ponte e outras indicações.
-- Sugestões de nomes divertidos para músicas e ideias.
-- Slides, ligados, bends, vibrato, ghost notes, harmônicos e tapping.
-- Palhetadas abaixo da pauta e P.M. com linha tracejada sobre o trecho selecionado.
-- Modo claro/noturno, quatro paletas e zoom de 60% a 180%.
-- Reprodução sintética em colcheias regulares, seleção e loop. Técnicas e repetições são indicações visuais e não alteram o áudio.
-- Exportação e importação JSON, exportação TXT e impressão/PDF.
+## MP3 local
 
-## Seus dados
+**+ MP3 de referência** carrega áudio do computador (até 200 MB). O arquivo é guardado no IndexedDB do navegador, quando há espaço. Nada é enviado a um servidor. Em **Início da tablatura no áudio**, indique o segundo do MP3 que corresponde ao primeiro compasso (por exemplo, 5,2 para pular uma introdução). Valores negativos adicionam uma espera antes de iniciar o áudio.
 
-As músicas e preferências ficam no armazenamento local do navegador. O app não envia músicas para o GitHub e não usa servidor de banco de dados, rastreadores ou serviços de terceiros. Limpar os dados do navegador pode apagar os projetos. Exporte JSON regularmente.
+O relógio do áudio guia o cursor, evitando acumular desvio por temporizadores. A sincronização depende de BPM, fórmula, subdivisão e início corretos; gravações com andamento variável exigem um mapa de tempo importado ou ajustes. JSON guarda a estrutura e o deslocamento, mas **não** inclui o MP3; transfira-o separadamente. Remover o áudio o exclui do armazenamento local deste projeto.
 
-Para migrar da versão local, exporte cada projeto em JSON e importe no endereço publicado. Localhost, arquivos locais e GitHub Pages têm armazenamentos separados. Projetos JSON das versões 1, 2, 3 e 4 são compatíveis.
+## Exportar
 
-## Atualizações
+- **Projeto editável JSON:** formato v5; lê arquivos v1–v5 e migra os antigos. Dados continuam locais. Exporte backups antes de limpar o navegador.
+- **Texto:** tablatura com instrumentos e anotações.
+- **PDF:** arquivo A4 de alta resolução (200 dpi), fundo branco, título, informações, compassos numerados, nomes/afinações dos instrumentos, margens e páginas. Usa imagens de alta resolução, portanto texto não é selecionável.
+- **Tira para vídeo:** escolha intervalo de compassos, instrumento(s), fundo branco/transparente e PNG ou SVG. Tamanhos 1920×540, 3840×1080, 1920×1080 e 3840×2160. A tira é contínua; use trechos curtos para legibilidade. Exportações excessivamente densas são recusadas.
 
-O service worker mantém uma cópia consistente dos arquivos do app. Ao detectar uma atualização, mostra um aviso; clique em Atualizar agora quando quiser aplicá-la. Antes de recarregar, o app salva o projeto aberto. O cache do app é separado do armazenamento das músicas.
+## Importar Guitar Pro
 
-## Desenvolvimento local
+Na tela inicial, use **Importar Guitar Pro** e selecione .gp3, .gp4, .gp5, .gpx ou .gp (GP7/GP8). Escolha até duas faixas com cordas. A leitura é local, com alphaTab 1.9.0, incluído no app para funcionamento offline. Nenhum arquivo é enviado ao servidor.
 
-Sem dependências ou compilação:
+Importa afinações, casas, ataques, compassos, andamento por compasso, textos/acordes e técnicas compatíveis. Seleciona automaticamente uma grade para representar os ataques, inclusive tercinas comuns. O relatório avisa aproximações, notas fora do alcance/compasso e colisões de vozes. Recursos que o Corda não representa integralmente: durações sustentadas e suas ligaduras, dinâmica, articulações avançadas, execução de repetições/casas e alterações de tempo no interior do compasso. Repetições ficam na ordem escrita, sem expandir voltas. Revise a importação antes de sincronizar com uma gravação.
 
-```bash
-python3 -m http.server 8080
-```
+Limites: 2.000 compassos e 32.768 posições de tempo por projeto; 8–128 posições por sistema. Grades muito grandes podem ser pesadas em dispositivos móveis.
 
-Abra http://localhost:8080/. Service workers precisam de HTTPS ou localhost; abrir o HTML diretamente não ativa a PWA.
+## PWA e desenvolvimento
 
-## Publicar no GitHub Pages
+A instalação não exige conta. Abra com internet uma vez para preparar os arquivos offline. O banner **Atualizar agora** aplica novas versões mantendo projetos. O contador Hits aparece apenas na tela inicial da versão hospedada.
 
-Em Settings → Pages, publique a branch `main`, pasta raiz (`/`). O arquivo `.nojekyll` permite servir os arquivos estáticos diretamente. Todos os caminhos são relativos para funcionar no subdiretório `/corda/`.
+Para rodar localmente: `python3 -m http.server 8080` nesta pasta. Abra `http://localhost:8080/?dev=1` para testar alterações sem registrar service worker. Remova `?dev=1` para testar a PWA offline.
 
-A cada atualização, altere `VERSION` em `sw.js`. Inclua novos arquivos essenciais na lista `FILES`. Não inclua backups de músicas no repositório.
+Arquivos principais: `index.html`, `style.css`, `app.js` (edição), `music.js` (modelo musical), `studio.js` (prática/importação/exportação), `pwa.js`, `sw.js`. Incremente APP_VERSION e VERSION em cada publicação.
 
-Para testar o fluxo offline: abra o app com o servidor ativo, aguarde o cache, encerre o servidor e recarregue. O editor deve continuar abrindo. Teste também o salvamento e a reabertura de um projeto.
+Terceiros: [alphaTab](https://github.com/CoderLine/alphaTab), versão 1.9.0, MPL-2.0; licença em `alphatab-LICENSE.txt`. O arquivo distribuído não foi modificado. [Hits](https://hits.sh/) fornece o contador externo opcional da tela inicial.
 
-## Textos e nomes de ideias
-
-Clique na faixa Aa acima da tablatura na coluna desejada, digite o texto e salve. F2 abre o texto da coluna selecionada. Cada instrumento tem seus próprios textos. Eles acompanham a inserção e remoção de colunas, são incluídos no JSON e no TXT e aparecem na impressão. Copiar/recortar uma seleção com todas as cordas também inclui os textos.
-
-Abaixo do título, Sugerir um nome divertido oferece três opções e permite pedir outras. Escolher um nome pode ser desfeito como qualquer edição. A escolha não altera as notas.
-
-## Instrumentos e afinações — v1.4.0
-
-Em Instrumento e tempo, use Nome do instrumento para escrever livremente Violão, Baixo ou outro nome. Escolha de 1 a 12 cordas. As afinações prontas incluem guitarra/violão, Drop D/C, Ré padrão, meio tom abaixo, DADGAD, Open G/D, guitarras de 7/8 cordas, violão de 7 cordas, baixos de 4/5/6 cordas, ukulele, banjo e bandolim de 8 cordas em pares.
-
-Os campos de cada corda aceitam nota e oitava, por exemplo E2, C#3 ou Bb1. A corda 1 corresponde à primeira linha da tablatura. Para instrumentos com afinação reentrante, como ukulele e banjo, as alturas não precisam estar ordenadas.
-
-Alterar a afinação preserva as casas, alterando a altura da reprodução. Ao reduzir a quantidade de cordas, as notas excedentes ficam ocultas e salvas no projeto. Aumentar o número de cordas recupera essas notas; escolher outra afinação altera o som, sem converter a digitação entre instrumentos.
-
-Os backups novos usam a versão 4. A versão do app é mostrada no rodapé da biblioteca e do editor.
+Validação do modelo: `node test-music.cjs` e `node test-import.mjs`.

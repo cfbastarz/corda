@@ -13,7 +13,7 @@
  function announce(){if(registration?.waiting){banner.hidden=false;document.getElementById('apply-update').disabled=false;}}
  document.getElementById('later-update').onclick=()=>banner.hidden=true;
  document.getElementById('apply-update').onclick=()=>{if(!registration?.waiting)return;window.dispatchEvent(new Event('corda:before-update'));reloading=true;document.getElementById('apply-update').disabled=true;registration.waiting.postMessage({type:'SKIP_WAITING'});};
- if('serviceWorker' in navigator&&['https:','http:'].includes(location.protocol)){
+ if(!(new URLSearchParams(location.search).has('dev')&&['localhost','127.0.0.1'].includes(location.hostname))&&'serviceWorker' in navigator&&['https:','http:'].includes(location.protocol)){
  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(reloading)location.reload();});
  addEventListener('load',async()=>{try{registration=await navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'});announce();registration.addEventListener('updatefound',()=>{const worker=registration.installing;if(!worker)return;installing=true;worker.addEventListener('statechange',()=>{if(worker.state==='installed'){installing=false;if(navigator.serviceWorker.controller)announce();else status.textContent='Pronto para usar offline.';}});});await navigator.serviceWorker.ready;if(!registration.waiting&&!installing)status.textContent=navigator.onLine?'Pronto para usar offline.':'Offline · suas músicas continuam disponíveis';}catch{status.textContent='Uso offline indisponível. O editor continua funcionando.';}});
  }
