@@ -1,6 +1,6 @@
 # Corda
 
-Editor de tablaturas de guitarra, instalável como PWA e utilizável offline.
+Editor de tablaturas para instrumentos de corda, instalável como PWA e utilizável offline.
 
 **Abrir:** https://cfbastarz.github.io/corda/
 
@@ -18,7 +18,7 @@ Os controles de instalação variam conforme o navegador. A instalação não si
 
 Clique numa corda para fixar a posição. Digite uma casa de 0 a 24; dois dígitos rápidos formam uma casa. Espaço avança, setas navegam, Shift + setas seleciona e Delete apaga. As ferramentas inferiores inserem casas, técnicas e comandos de edição.
 
-- Duas guitarras com afinações independentes e colunas alinhadas.
+- Dois instrumentos de 1 a 12 cordas, com nomes livres, afinações independentes e colunas alinhadas.
 - Textos acima das cordas, ancorados às colunas, para Início, Verso, Refrão, Ponte e outras indicações.
 - Sugestões de nomes divertidos para músicas e ideias.
 - Slides, ligados, bends, vibrato, ghost notes, harmônicos e tapping.
@@ -31,7 +31,7 @@ Clique numa corda para fixar a posição. Digite uma casa de 0 a 24; dois dígit
 
 As músicas e preferências ficam no armazenamento local do navegador. O app não envia músicas para o GitHub e não usa servidor de banco de dados, rastreadores ou serviços de terceiros. Limpar os dados do navegador pode apagar os projetos. Exporte JSON regularmente.
 
-Para migrar da versão local, exporte cada projeto em JSON e importe no endereço publicado. Localhost, arquivos locais e GitHub Pages têm armazenamentos separados. Projetos JSON das versões 1, 2 e 3 são compatíveis.
+Para migrar da versão local, exporte cada projeto em JSON e importe no endereço publicado. Localhost, arquivos locais e GitHub Pages têm armazenamentos separados. Projetos JSON das versões 1, 2, 3 e 4 são compatíveis.
 
 ## Atualizações
 
@@ -57,6 +57,16 @@ Para testar o fluxo offline: abra o app com o servidor ativo, aguarde o cache, e
 
 ## Textos e nomes de ideias
 
-Clique na faixa Aa acima da tablatura na coluna desejada, digite o texto e salve. F2 abre o texto da coluna selecionada. Cada guitarra tem seus próprios textos. Eles acompanham a inserção e remoção de colunas, são incluídos no JSON e no TXT e aparecem na impressão. Copiar/recortar uma seleção com as seis cordas também inclui os textos.
+Clique na faixa Aa acima da tablatura na coluna desejada, digite o texto e salve. F2 abre o texto da coluna selecionada. Cada instrumento tem seus próprios textos. Eles acompanham a inserção e remoção de colunas, são incluídos no JSON e no TXT e aparecem na impressão. Copiar/recortar uma seleção com todas as cordas também inclui os textos.
 
 Abaixo do título, Sugerir um nome divertido oferece três opções e permite pedir outras. Escolher um nome pode ser desfeito como qualquer edição. A escolha não altera as notas.
+
+## Instrumentos e afinações — v1.4.0
+
+Em Instrumento e tempo, use Nome do instrumento para escrever livremente Violão, Baixo ou outro nome. Escolha de 1 a 12 cordas. As afinações prontas incluem guitarra/violão, Drop D/C, Ré padrão, meio tom abaixo, DADGAD, Open G/D, guitarras de 7/8 cordas, violão de 7 cordas, baixos de 4/5/6 cordas, ukulele, banjo e bandolim de 8 cordas em pares.
+
+Os campos de cada corda aceitam nota e oitava, por exemplo E2, C#3 ou Bb1. A corda 1 corresponde à primeira linha da tablatura. Para instrumentos com afinação reentrante, como ukulele e banjo, as alturas não precisam estar ordenadas.
+
+Alterar a afinação preserva as casas, alterando a altura da reprodução. Ao reduzir a quantidade de cordas, as notas excedentes ficam ocultas e salvas no projeto. Aumentar o número de cordas recupera essas notas; escolher outra afinação altera o som, sem converter a digitação entre instrumentos.
+
+Os backups novos usam a versão 4. A versão do app é mostrada no rodapé da biblioteca e do editor.
